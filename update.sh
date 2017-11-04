@@ -9,7 +9,7 @@ echoerr ()
 echo ""
 echo "Updating the package list"
 echo "========================="
-apt-get update || {
+sudo apt-get update -y || {
 	echoerr "Failed updating the package list; aborting."
 	exit 1
 }
@@ -17,7 +17,7 @@ apt-get update || {
 echo ""
 echo "Applying the updates"
 echo "===================="
-apt-get dist-upgrade || {
+sudo apt-get dist-upgrade -y || {
 	echoerr "Failed applying the updates; aborting"
 	exit 1
 }
@@ -25,24 +25,9 @@ apt-get dist-upgrade || {
 echo ""
 echo "Removing unnecessary packages"
 echo "============================="
-apt-get autoremove || {
+sudo apt-get autoremove -y || {
 	echoerr "Failed removing unnecessary packages; aborting."
 	exit 1
-}
-
-echo ""
-echo "Updating the firmware"
-echo "====================="
-rpi-update || {
-	echo "Failed updating the firmware! Attempting to install it."
-	apt-get install rpi-update || {
-		echoerr "Failed installing rpi-update; aborting."
-		exit 1
-	}
-	rpi-update || {
-		echoerr "Failed updating the firmware, even after installing rpi-update; aborting."
-		exit 1
-	}
 }
 
 echo ""
