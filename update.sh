@@ -43,7 +43,7 @@ command -v deborphan > /dev/null || {
 echo ""
 echo "Removing orphaned packages"
 echo "=========================="
-sudo apt-get remove `deborphan` --purge || {
+sudo apt-get remove `deborphan` --purge -y || {
 	echoerr "Failed removing orphaned packages; aborting."
 	exit 1
 }
