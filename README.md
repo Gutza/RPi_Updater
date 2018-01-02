@@ -1,4 +1,3 @@
 # RPi_Updater
-A simple script that updates your Raspberry Pi.
+A simple script that updates your Raspberry Pi, because I was getting fed up with looking up all the sequence of commands needed.
 
-Simply calls apt-get update, apt-get dist-upgrade, and apt-get autoremove.
