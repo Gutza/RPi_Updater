@@ -25,7 +25,7 @@ sudo apt-get dist-upgrade -y || {
 echo ""
 echo "Removing unnecessary packages"
 echo "============================="
-sudo apt-get autoremove -y || {
+sudo apt autoremove -y || {
 	echoerr "Failed removing unnecessary packages; aborting."
 	exit 1
 }
